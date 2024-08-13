@@ -1,0 +1,62 @@
+
+<h1 class="theader">Item </h1>
+<div class="table-responsive">
+<table class="table table-striped table-bordered">
+<thead class="thead-dark" >
+<tr>
+  <th>Brand</th>
+  <th>Price</th>
+  <th>Colour</th>
+  <th>Code</th>
+  <th>Quantity</th>
+  <th>Size</th>
+  <th colspan="3"></th>
+</tr>
+</thead>
+<tbody>
+  <div id="goods">
+
+
+    <tr>
+
+
+    <td>
+        <%= @good.brand %>
+    </td>
+
+          <td>
+      <%= @good.price %>
+          </td>
+    <td>
+      <%= @good.colour %>
+    </td>
+        <td>
+      <%= @good.code %>
+        </td>
+
+        <td>
+      <%= @good.quantity %>
+        </td>
+        <td>
+      <%= @good.size %>
+        </td>
+<td>
+  <div>
+    <%= link_to "Edit this good", edit_good_path(@good), class: "btn btn-primary" %> |
+    <%= link_to "Back to goods", goods_path, class: "btn btn-primary" %>
+
+
+  </div>
+
+</td>
+
+
+
+</tr>
+
+  </div>
+</tbody>
+
+</table>
+</div>
+  <%= button_to "Destroy this good", @good, method: :delete , class: "btn btn-primary"%>

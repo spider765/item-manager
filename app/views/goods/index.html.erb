@@ -1,0 +1,62 @@
+
+<h1 class="theader">Items</h1>
+<br>
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover">
+<thead class="thead-dark" >
+<tr>
+  <th>Brand</th>
+  <th>Price</th>
+  <th>Colour</th>
+  <th>Code</th>
+  <th>Quantity</th>
+  <th>Size</th>
+  <th colspan="3"></th>
+</tr>
+</thead>
+  <tbody>
+    <div id="goods">
+      <% @goods.each do |good| %>
+<% if good.user == current_user %>
+      <tr>
+
+
+      <td>
+          <%= good.brand %>
+      </td>
+
+            <td>
+        <%= good.price %>
+            </td>
+      <td>
+        <%= good.colour %>
+      </td>
+          <td>
+        <%= good.code %>
+          </td>
+
+          <td>
+        <%= good.quantity %>
+          </td>
+          <td>
+        <%= good.size %>
+          </td>
+
+
+
+        <td>
+  <%= link_to "Show this item", good,  class: "btn btn-primary"%>
+
+
+
+      <% end %>
+        </td>
+  </tr>
+<% end%>
+
+  </tbody>
+
+</table>
+</div>
+<br>
+  <%= link_to "New good", new_good_path, class: "btn btn-primary" %>
