@@ -1,0 +1,24 @@
+<h1>Scan Logs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Brand</th>
+      <th>QR Data</th>
+      <th>Scanned At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @scans.each do |scan| %>
+      <tr>
+        <td><%= scan.good.brand %></td>
+        <td><%= scan.qr_data %></td>
+        <td><%= scan.scanned_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div>
+  <h3>QR Code for <%= @good.brand %></h3>
+  <div><%= raw @qr_code_svg %></div>
+</div>
