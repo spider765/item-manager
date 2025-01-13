@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   get 'scan/index'
   namespace :admin do
       resources :friends
@@ -28,6 +29,11 @@ post '/goods/process_qr', to: 'goods#process_qr'
   devise_for :users
   resources :friends
   resources :scans, only: [:index]
+=======
+  devise_for :users
+  resources :goods
+  resources :friends
+>>>>>>> 6b8a898766600ddf024c5fe77c0f32253f4e97c9
 
   get 'items/new'
   get 'items/create'
@@ -40,6 +46,7 @@ post '/goods/process_qr', to: 'goods#process_qr'
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
+<<<<<<< HEAD
  get 'search', to:"goods#search"
   # Defines the root path route ("/")
   # root "posts#index"
@@ -50,4 +57,9 @@ post '/goods/process_qr', to: 'goods#process_qr'
   end
 end
 
+=======
+ get 'search', to:"goods#search" 
+  # Defines the root path route ("/")
+  # root "posts#index"
+>>>>>>> 6b8a898766600ddf024c5fe77c0f32253f4e97c9
 end

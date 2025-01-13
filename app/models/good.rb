@@ -1,3 +1,4 @@
+
 require 'rqrcode'
 require 'fileutils'
 require 'chunky_png'
@@ -23,4 +24,8 @@ qr_code = RQRCode::QRCode.new(qr_data)
   end
 
 has_many :scans, dependent: :destroy
+class Good < ApplicationRecord
+  belongs_to :user
+
+
 end
