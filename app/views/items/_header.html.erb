@@ -37,26 +37,22 @@
         <li class="nav-item">
           <%= link_to 'Sign Up', new_user_registration_path, class:"nav-link" %>
         </li>
-<<<<<<< HEAD
-      
+
 
       <% end %>
 
       <% if current_user&.admin? %>
   <li class="nav-item">
     <%= link_to "Admin",   admin_root_path, class: "nav-link active" %>
-  </li>
+    </li>
 
 <% end %>
 
 
 
-=======
 
 
-      <% end %>
 
->>>>>>> 6b8a898766600ddf024c5fe77c0f32253f4e97c9
       </ul>
       <form class="d-flex" action="/search">
         <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">

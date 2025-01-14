@@ -1,65 +1,57 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   get 'scan/index'
+
   namespace :admin do
-      resources :friends
-      resources :goods
-      resources :users
+    resources :friends
+    resources :goods
+    resources :users
+    root to: "friends#index"
+  end
 
-      root to: "friends#index"
+  # Goods routes
+  resources :goods do
+    member do
+      get 'generate_qr'  # Route for generating QR code for a specific good
+      post 'process_qr'  # Route for processing QR codes
     end
-
-    # config/routes.rb
-resources :goods do
-  member do
-    get 'generate_qr'  # Adds the route for generate_qr
-    post 'process_qr'
+    collection do
+      get 'qrcode'       # Route for QR code generation page
+      post 'update_quantity' # Route for updating quantity of goods
+      get 'scan'         # Route for scanning functionality
+    end
   end
-  collection do
-    get 'qrcode'  # Adds the 'qrcode' route for goods
- post 'update_quantity', to: 'goods#update_quantity', as: 'update_quantity'
-       get 'scan'
-  end
-end
-post '/goods/process_qr', to: 'goods#process_qr'
 
-# config/routes.rb
-
-
-  devise_for :users
-  resources :friends
+  # Scans routes
   resources :scans, only: [:index]
-=======
-  devise_for :users
-  resources :goods
-  resources :friends
->>>>>>> 6b8a898766600ddf024c5fe77c0f32253f4e97c9
 
+  # Devise routes
+  devise_for :users# Avoid duplication
+  
+
+  # Friends routes
+  resources :friends
+
+  # Items routes
   get 'items/new'
   get 'items/create'
   get 'items/edit'
   get 'items/update'
   get 'items/destroy'
   get 'items/show'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Search route
+  get 'search', to: "goods#search"
+
+  # Root route
   root "items#index"
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+
+  # Health check route
   get "up" => "rails/health#show", as: :rails_health_check
-<<<<<<< HEAD
- get 'search', to:"goods#search"
-  # Defines the root path route ("/")
-  # root "posts#index"
 
+  # Admin dashboard with authentication
   authenticate :user, ->(user) { user.admin? && user.email == "Destiny@Desiree.com" } do
-  namespace :admin do
-    Administrate::Engine.routes
+    namespace :admin do
+      Administrate::Engine.routes
+    end
   end
-end
-
-=======
- get 'search', to:"goods#search" 
-  # Defines the root path route ("/")
-  # root "posts#index"
->>>>>>> 6b8a898766600ddf024c5fe77c0f32253f4e97c9
 end

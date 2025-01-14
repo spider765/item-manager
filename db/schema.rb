@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -60,7 +59,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_12_185752) do
 
   add_foreign_key "scans", "goods"
 end
-=======
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -111,4 +109,3 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_194221) do
   end
 
 end
->>>>>>> 6b8a898766600ddf024c5fe77c0f32253f4e97c9

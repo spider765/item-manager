@@ -185,6 +185,8 @@ end
       format.html { redirect_to goods_path, notice: message }
       format.json { render json: { message: message } }
   # POST /goods or /goods.json
+end
+end
   def create
 
     @good = current_user.goods.build(friend_params)

@@ -4,6 +4,7 @@ require 'fileutils'
 require 'chunky_png'
 class Good < ApplicationRecord
   belongs_to :user
+  has_many :scans, dependent: :destroy
 
   def generate_qr_code
 
@@ -22,10 +23,4 @@ qr_code = RQRCode::QRCode.new(qr_data)
       f.write(png.to_s)
     end
   end
-
-has_many :scans, dependent: :destroy
-class Good < ApplicationRecord
-  belongs_to :user
-
-
 end
