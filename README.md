@@ -129,5 +129,5 @@ Submit a pull request with a detailed description of your changes.
 
 Contact
 
-For any issues or inquiries, please contact the project maintainer at admin@itemmanager.com.
+For any issues or inquiries, please contact the project maintainer at fazeents@gmail.com.
 
