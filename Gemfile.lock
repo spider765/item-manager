@@ -105,7 +105,10 @@ GEM
     concurrent-ruby (1.3.3)
     connection_pool (2.4.1)
     crass (1.0.6)
+<<<<<<< HEAD
     csv (3.3.6)
+=======
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
     date (3.3.4)
     debug (1.9.2)
       irb (~> 1.10)
@@ -118,7 +121,10 @@ GEM
       warden (~> 1.2.3)
     drb (2.2.1)
     erubi (1.13.0)
+<<<<<<< HEAD
     ffi (1.17.1-arm64-darwin)
+=======
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
     ffi (1.17.1-x64-mingw-ucrt)
     ffi (1.17.1-x86_64-linux-gnu)
     globalid (1.2.1)
@@ -164,7 +170,10 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     mini_mime (1.1.5)
+<<<<<<< HEAD
     mini_portile2 (2.8.9)
+=======
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
     minitest (5.24.1)
     msgpack (1.7.2)
     mutex_m (0.2.0)
@@ -178,11 +187,17 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
+<<<<<<< HEAD
     nokogiri (1.19.4-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.19.4-x64-mingw-ucrt)
       racc (~> 1.4)
     nokogiri (1.19.4-x86_64-linux-gnu)
+=======
+    nokogiri (1.16.7-x64-mingw-ucrt)
+      racc (~> 1.4)
+    nokogiri (1.16.7-x86_64-linux)
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
       racc (~> 1.4)
     orm_adapter (0.5.0)
     psych (5.1.2)
@@ -269,8 +284,13 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
+<<<<<<< HEAD
     sqlite3 (1.7.3)
       mini_portile2 (~> 2.8.0)
+=======
+    sqlite3 (1.7.3-x64-mingw-ucrt)
+    sqlite3 (1.7.3-x86_64-linux)
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
     stimulus-rails (1.3.3)
       railties (>= 6.0.0)
     stringio (3.1.1)
@@ -303,11 +323,15 @@ GEM
     zeitwerk (2.6.17)
 
 PLATFORMS
+<<<<<<< HEAD
   arm64-darwin-25
+=======
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
   x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES
+<<<<<<< HEAD
   administrate
   bootsnap
   capybara
@@ -320,6 +344,19 @@ DEPENDENCIES
   puma
   rails
   roo
+=======
+  administrate (~> 0.20.1)
+  bootsnap
+  capybara
+  chunky_png (~> 1.4)
+  debug
+  devise (~> 4.9, >= 4.9.4)
+  importmap-rails
+  jbuilder
+  puma (>= 5.0)
+  rails (~> 7.1.3, >= 7.1.3.4)
+  roo (~> 2.10, >= 2.10.1)
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
   rqrcode
   selenium-webdriver
   sprockets-rails
@@ -330,7 +367,11 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
+<<<<<<< HEAD
    ruby 3.4.8p72
+=======
+   ruby 3.2.2p53
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
 
 BUNDLED WITH
    2.4.10

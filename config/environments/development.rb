@@ -74,6 +74,9 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = false
+<<<<<<< HEAD
   config.hosts << /.*\.ngrok-free\.(dev|app)/
   config.hosts << "oblong-spotlight-venue.ngrok-free.dev"
+=======
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
 end

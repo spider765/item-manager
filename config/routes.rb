@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :goods do
     member do
       get 'generate_qr'  # Route for generating QR code for a specific good
+<<<<<<< HEAD
     end
     collection do
       get 'qrcode'            # Route for QR code generation page
@@ -23,6 +24,14 @@ Rails.application.routes.draw do
       # already being present in the URL. The controller looks the good
       # up itself from the decoded JSON's "id" field.
       post 'process_qr'
+=======
+      post 'process_qr'  # Route for processing QR codes
+    end
+    collection do
+      get 'qrcode'       # Route for QR code generation page
+      post 'update_quantity' # Route for updating quantity of goods
+      get 'scan'         # Route for scanning functionality
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
     end
   end
 
@@ -30,7 +39,12 @@ Rails.application.routes.draw do
   resources :scans, only: [:index]
 
   # Devise routes
+<<<<<<< HEAD
   devise_for :users # Avoid duplication
+=======
+  devise_for :users# Avoid duplication
+  
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
 
   # Friends routes
   resources :friends
@@ -58,4 +72,8 @@ Rails.application.routes.draw do
       Administrate::Engine.routes
     end
   end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d

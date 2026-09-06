@@ -1,9 +1,16 @@
 source "https://rubygems.org"
 
+<<<<<<< HEAD
 ruby "3.4.8"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails"
+=======
+ruby "3.2.2"
+
+# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem "rails", "~> 7.1.3", ">= 7.1.3.4"
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -12,11 +19,19 @@ gem "sprockets-rails"
 gem "sqlite3", "~> 1.4"
 
 # Use the Puma web server [https://github.com/puma/puma]
+<<<<<<< HEAD
 gem "puma"
 
 gem 'rqrcode'
 gem 'chunky_png'
 gem 'csv', '>= 3.3.6'
+=======
+gem "puma", ">= 5.0"
+
+gem 'rqrcode'
+gem 'chunky_png', '~> 1.4'
+
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -48,7 +63,11 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+<<<<<<< HEAD
 gem 'administrate'
+=======
+gem 'administrate', '~> 0.20.1'
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
 
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
@@ -57,8 +76,13 @@ gem 'administrate'
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+<<<<<<< HEAD
 gem 'roo'
 gem 'devise'
+=======
+gem 'roo', '~> 2.10', '>= 2.10.1'
+gem 'devise', '~> 4.9', '>= 4.9.4'
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 

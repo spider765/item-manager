@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -48,4 +49,37 @@
     <%= yield %>
   </div>
 </body>
+=======
+<html>
+  <head>
+    <title>Item</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+<div id="qr-reader" style="width: 300px;"></div>
+<script src="\app\javascript\qr_reader.js"></script>
+
+
+  </head>
+
+  <body>
+    <%= render 'items/header'%>
+
+  <div class="container">
+
+    <br/>
+    <%if notice %>
+    <%= render 'layouts/alerts'%>
+    <% end %>
+
+
+      <%= yield %>
+  </div>
+
+  </body>
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
 </html>

@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -58,4 +60,79 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_12_185752) do
   end
 
   add_foreign_key "scans", "goods"
+end
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
+#
+# It's strongly recommended that you check this file into your version control system.
+
+<<<<<<< HEAD
+ActiveRecord::Schema[7.1].define(version: 2025_01_12_185752) do
+=======
+ActiveRecord::Schema[7.1].define(version: 2024_08_12_194221) do
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
+  create_table "friends", force: :cascade do |t|
+    t.string "brand"
+    t.integer "price"
+    t.string "colour"
+    t.integer "code"
+    t.integer "quantity"
+    t.integer "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "goods", force: :cascade do |t|
+    t.string "brand"
+    t.integer "price"
+    t.string "colour"
+    t.integer "code"
+    t.integer "quantity"
+    t.integer "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_goods_on_user_id"
+  end
+
+<<<<<<< HEAD
+  create_table "scans", force: :cascade do |t|
+    t.integer "good_id", null: false
+    t.datetime "scanned_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "qr_data"
+    t.index ["good_id"], name: "index_scans_on_good_id"
+  end
+
+=======
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+<<<<<<< HEAD
+    t.boolean "admin"
+=======
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+<<<<<<< HEAD
+  add_foreign_key "scans", "goods"
+=======
+>>>>>>> 08a872e0b0666f25adddb6cc6b5370a75589913d
 end
