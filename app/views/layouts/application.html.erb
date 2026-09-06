@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Item</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  >
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+
+  <!--
+    Pinned to a specific version instead of the unversioned /html5-qrcode/
+    path, so a future upstream release can't silently change behavior here.
+
+    TODO: add integrity="sha384-..." once you generate the real hash for
+    this exact version — e.g. paste this URL into https://www.srihash.org
+    or jsDelivr's own package page (which shows a "copy SRI" button).
+    Do NOT guess a hash: a wrong one makes the browser refuse to run the
+    script at all, which is worse than having no SRI on it.
+  -->
+  <script
+    src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"
+    crossorigin="anonymous"
+    defer
+  ></script>
+</head>
+
+<body>
+  <%= render 'items/header' %>
+
+  <div class="container">
+    <br/>
+
+    <% if notice || alert %>
+      <%= render 'layouts/alerts' %>
+    <% end %>
+
+    <%= yield %>
+  </div>
+</body>
+</html>

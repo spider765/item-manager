@@ -1,0 +1,32 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Brand</th>
+       <th>Price</th>
+       <th>Quantity</th>
+      <th>QR Code Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @goods.each do |good| %>
+      <tr>
+        <td><%= good.brand %></td>
+         <td><%= good.price %></td>
+          <td><%= good.quantity %></td>
+        <td><%= link_to "Generate QR Code", generate_qr_good_path(good), class: "btn btn-primary" %></td>
+        <td>
+     <%= button_to "Add Quantity", update_quantity_goods_path,
+                   params: { name: good.brand, action_type: "add", amount: 1 },
+                   method: :post, class: "btn btn-primary" %>
+     <%= button_to "Remove Quantity", update_quantity_goods_path,
+                   params: { name: good.brand, action_type: "remove", amount: 1 },
+                   method: :post, class: "btn btn-primary" %>
+   </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div>
+
+  <div><%= raw @qr_code_svg %></div>
+</div>

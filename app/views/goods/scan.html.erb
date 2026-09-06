@@ -1,0 +1,96 @@
+<h1>Scan Item</h1>
+
+<p>Point the camera at an item's QR code. Each successful scan removes 1 unit from that item's inventory.</p>
+
+<div id="reader" style="width: 100%; max-width: 500px;"></div>
+
+<div id="scan-result" class="mt-3"></div>
+
+<hr>
+
+<!-- Manual fallback for testing without a camera, or if the camera scanner
+     isn't available/permitted in this browser. Paste the same JSON a QR
+     code would encode, e.g. {"id":5,"name":"Nike Air Max"} -->
+<div class="mt-4">
+ 
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const resultBox = document.getElementById("scan-result");
+    let isProcessing = false;
+
+    function renderResult(payload, isError) {
+      const alertClass = isError ? "alert-danger" : "alert-success";
+      let details = "";
+
+      if (payload.good) {
+        details = `<div>Brand: <strong>${payload.good.brand}</strong></div>` +
+                  `<div>Quantity remaining: <strong>${payload.good.quantity}</strong></div>`;
+      }
+
+      resultBox.innerHTML = `
+        <div class="alert ${alertClass}" role="alert">
+          <div>${payload.message || payload.error}</div>
+          ${details}
+        </div>
+      `;
+    }
+
+    async function submitQrData(qrDataString) {
+      if (isProcessing) return;
+      isProcessing = true;
+
+      try {
+        const response = await fetch("/goods/process_qr", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
+          },
+          body: JSON.stringify({ qr_data: qrDataString })
+        });
+
+        const data = await response.json();
+        renderResult(data, !response.ok);
+      } catch (err) {
+        renderResult({ error: "Something went wrong contacting the server." }, true);
+      } finally {
+        // Small cooldown so the same code can't be scanned twice in rapid
+        // succession before the UI has a chance to show the result.
+        setTimeout(() => { isProcessing = false; }, 1500);
+      }
+    }
+
+    // --- Camera scanner ---
+    if (typeof Html5QrcodeScanner !== "undefined") {
+      const html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader",
+        { fps: 10, qrbox: 250 },
+        /* verbose= */ false
+      );
+
+      html5QrcodeScanner.render(
+        function onScanSuccess(decodedText) {
+          submitQrData(decodedText);
+        },
+        function onScanFailure() {
+          // Called continuously while no code is in frame — intentionally
+          // ignored, this isn't an error state.
+        }
+      );
+    } else {
+      resultBox.innerHTML = `
+        <div class="alert alert-warning">
+          Camera scanner library did not load. You can still use manual entry below.
+        </div>
+      `;
+    }
+
+    // --- Manual entry fallback ---
+    document.getElementById("manual-submit").addEventListener("click", function () {
+      const value = document.getElementById("manual-qr-data").value.trim();
+      if (value) submitQrData(value);
+    });
+  });
+</script>
